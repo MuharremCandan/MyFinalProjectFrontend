@@ -21,8 +21,14 @@ export class CartService {
       CartItems.push(cartItem);
     }
   }
+  removeFromCart(product: Product) {
+    let item = CartItems.find((c) => c.product.productId === product.productId);
+    CartItems.splice(CartItems.indexOf(item), 1);
+  }
 
   list(): CartItem[] {
     return CartItems;
   }
 }
+
+//splice : belirli indexten itibaren kaç tane silmek istedğimizi söylüyoruz mesela splice(4 , 5 )4. indexten sonra 5 tane sil
